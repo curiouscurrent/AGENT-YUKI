@@ -1,0 +1,690 @@
+{
+  "_id": "68ecc7437a321f71d710a508",
+  "gid": "META",
+  "convid": "fGIWmV",
+  "type": "META",
+  "partial_convid": "fGIWmV",
+  "start_gambit_id": 1,
+  "canvas_position": {
+    "x": 0,
+    "y": 0,
+    "zoom": 1
+  },
+  "updated_at": "2025-10-13T09:32:51.130Z",
+  "created_at": "2025-10-13T09:32:51.130Z",
+  "__v": 0,
+  "gambits": {
+    "1": {
+      "_id": "68ecc7615ffeacbd44c9a8ea",
+      "gid": "1",
+      "convid": "fGIWmV",
+      "varid": "AGENT_YUKI",
+      "bubbles": {
+        "pre": {
+          "valid": []
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "pre": null,
+        "post": "api_call",
+        "jump": "comp_rsp",
+        "jump_args": {
+          "branches": [
+            {
+              "rsp_gid": "43"
+            }
+          ],
+          "rsp_gid": "1"
+        },
+        "post_args": {
+          "type": "POST",
+          "url": "https://asimov.hellotars.com/api/v2/run-agent",
+          "data": "{\"query\":\"\"}",
+          "includeUserResponse": "none",
+          "contentType": "application/json",
+          "enabled_encryption": false
+        }
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": ""
+        },
+        "args": {
+          "rsp_gid": "43"
+        }
+      },
+      "pos_left": 114,
+      "pos_top": -151,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "ai_agent",
+        "config": {
+          "docids": [],
+          "kbids": [],
+          "tools": [
+            "gid_12",
+            "gid_19",
+            "gid_22"
+          ],
+          "prompt": "\nYou are a helpful and friendly Al Assistant representing our company. You will always respond in the first person as 'we' when discussing the company. Your task is to provide one concise and helpful answer to each user's question. Keep your responses brief, breaking down larger answers into small, easy-to-read paragraphs and bullet points. Use markdown format to enhance readability.\n**Instructions:**\n \n1. If users have questions regarding general FAQS (For example: How to ensure safe and secure money transfer?, Refund not received for a cancelled train, etc.), always call the knowledge tool for every query. \nIf users have questions regarding anything other than general FAQS(For example: How to ensure safe and secure money transfer?, Refund not received for a cancelled train, etc.), always call the knowledge tool for every query.\n2. Answering Questions:**\n-If you cannot answer from the given information, respond with: \"I am not sure, can you rephrase the question.\"\n-Refuse to answer any questions not related to the information retrieved from the knowledge tool.\n- Never break character.",
+          "markdown": true,
+          "user_feedback": true,
+          "view_source": true,
+          "llm_model": "openai/gpt-4o-mini-2024-07-18",
+          "use_chat_history": true,
+          "stream": true,
+          "vendor": "openrouter",
+          "jump_success_prompt": "When the user asks for a human or a person to talk to"
+        },
+        "default_messages": {
+          "welcome_messages": [
+            {
+              "string": "",
+              "delay": 1000,
+              "img_url": "https://media.tenor.com/-ufrqpl5cp0AAAAM/test.gif"
+            },
+            {
+              "string": "Hello! I'm Yuki - Your Paytm Guide! How can I help you today?😎",
+              "delay": 1000
+            }
+          ]
+        },
+        "user_query": {
+          "value": ""
+        }
+      },
+      "updated_at": "2025-10-14T15:40:05.777Z",
+      "created_at": "2025-10-13T09:33:21.105Z",
+      "__v": 0,
+      "pos_migrated": true
+    },
+    "12": {
+      "_id": "68ed6fa55c05658f40b49dbc",
+      "convid": "fGIWmV",
+      "pos_left": -360,
+      "pos_top": 149,
+      "gambit_app": {
+        "gapp_id": "tool",
+        "config": {
+          "connected_gids": [
+            "1"
+          ],
+          "named_tool_id": "google_sheets",
+          "tool_label": "Google Sheets",
+          "tool_logo": "https://cdn.jsdelivr.net/gh/ComposioHQ/open-logos@master/google-sheets.svg"
+        }
+      },
+      "tools": [
+        {
+          "tool_id": "68ed6f3a1cb214869371db8a",
+          "name": "Google Sheets",
+          "logo": "https://cdn.jsdelivr.net/gh/ComposioHQ/open-logos@master/google-sheets.svg",
+          "schema_url": "https://tars-kbs.s3.amazonaws.com/public-tools/google_sheets/spec.yml",
+          "named_tool_id": "google_sheets"
+        }
+      ],
+      "updated_at": "2025-10-14T10:33:24.555Z",
+      "created_at": "2025-10-13T21:31:17.785Z",
+      "gid": "12",
+      "varid": "Google_sheets",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "You just write the words, I'll do all the talking :D"
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "pre": null,
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": ""
+        },
+        "args": {
+          "rsp_gid": null
+        }
+      },
+      "__v": 1,
+      "pos_migrated": true
+    },
+    "19": {
+      "_id": "68edb8015ffeacbd44c9e8ff",
+      "convid": "fGIWmV",
+      "pos_left": -311,
+      "pos_top": -224,
+      "gambit_app": {
+        "gapp_id": "tool",
+        "config": {
+          "connected_gids": [
+            "1"
+          ],
+          "named_tool_id": "knowledge",
+          "tool_label": "Knowledge",
+          "tool_logo": ""
+        }
+      },
+      "tools": [
+        {
+          "tool_id": "knowledge_base_tool",
+          "name": "Knowledge",
+          "logo": "",
+          "named_tool_id": "knowledge",
+          "schema_url": "https://tars-kbs.s3.amazonaws.com/private-tools/accounts/b42ldBNnP/knowledge_base_tool/Knowledge-fGIWmV-19.yml"
+        }
+      ],
+      "updated_at": "2025-10-14T03:24:24.706Z",
+      "created_at": "2025-10-14T02:40:01.615Z",
+      "gid": "19",
+      "varid": "FAQ_SUPPORT_PAYTM",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "You just write the words, I'll do all the talking :D"
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "pre": null,
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": ""
+        },
+        "args": {
+          "rsp_gid": null
+        }
+      },
+      "__v": 1,
+      "pos_migrated": true
+    },
+    "22": {
+      "_id": "68edc20f1cb214869371e6d9",
+      "convid": "fGIWmV",
+      "pos_left": -316,
+      "pos_top": -39,
+      "gambit_app": {
+        "gapp_id": "tool",
+        "config": {
+          "connected_gids": [
+            "1"
+          ],
+          "named_tool_id": "knowledge",
+          "tool_label": "Knowledge",
+          "tool_logo": ""
+        }
+      },
+      "tools": [
+        {
+          "tool_id": "knowledge_base_tool",
+          "name": "Knowledge",
+          "logo": "",
+          "named_tool_id": "knowledge",
+          "schema_url": "https://tars-kbs.s3.amazonaws.com/private-tools/accounts/b42ldBNnP/knowledge_base_tool/Knowledge-fGIWmV-22.yml"
+        }
+      ],
+      "updated_at": "2025-10-14T03:36:20.126Z",
+      "created_at": "2025-10-14T03:22:55.772Z",
+      "gid": "22",
+      "varid": "ALL-IN-ONE-PAYTM_ASSISTANT",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "You just write the words, I'll do all the talking :D"
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "pre": null,
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": ""
+        },
+        "args": {
+          "rsp_gid": null
+        }
+      },
+      "__v": 1,
+      "pos_migrated": true
+    },
+    "32": {
+      "_id": "68ee32571cb21486937200b8",
+      "gid": "32",
+      "convid": "fGIWmV",
+      "varid": "Name_Email_API",
+      "bubbles": {
+        "pre": {
+          "valid": []
+        },
+        "post": {
+          "err_invalid": []
+        }
+      },
+      "actions": {
+        "post": "",
+        "jump": "next_rsp",
+        "pre": "api_call",
+        "pre_args": {
+          "type": "POST",
+          "url": "https://hooks.zapier.com/hooks/catch/24957107/u5wip58/",
+          "includeUserResponse": "none",
+          "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
+          "enable_encryption": false,
+          "data": {
+            "Name": "{{ursp.Name}}",
+            "Email": "{{ursp.Email}}"
+          }
+        }
+      },
+      "input": {
+        "name": "no_input",
+        "attr": {
+          "type": "custom"
+        },
+        "args": {
+          "rsp_gid": "45",
+          "val": "--NO-INPUT--"
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 351,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "api_config"
+      },
+      "updated_at": "2025-10-14T15:52:08.552Z",
+      "created_at": "2025-10-14T11:21:59.834Z",
+      "__v": 0,
+      "pos_migrated": true
+    },
+    "43": {
+      "_id": "68ee6e3f7a321f71d7111a45",
+      "gid": "43",
+      "convid": "fGIWmV",
+      "varid": "Name",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "Before connecting you to a person",
+              "delay": 1000
+            },
+            {
+              "string": "Please kindly provide me your :<br>Full Name :",
+              "delay": 1000
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": "off",
+          "placeholder": "Type here.."
+        },
+        "args": {
+          "rsp_gid": "44",
+          "input_type": "custom_text",
+          "pass": false,
+          "multiple": false
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 11,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "basic",
+        "properties": [
+          {
+            "id": "fDYYAPgiS2BaNE2nzej13",
+            "name": "Name",
+            "key": "Name",
+            "type": "string",
+            "required": true,
+            "description": "Collect full name of the person"
+          }
+        ],
+        "examples": [],
+        "user_query": {
+          "value": ""
+        },
+        "llm_model": "openai/gpt-4o-2024-08-06",
+        "vendor": "openrouter",
+        "data_collection": true,
+        "use_chat_history": true
+      },
+      "updated_at": "2025-10-14T15:49:11.508Z",
+      "created_at": "2025-10-14T15:37:35.033Z",
+      "__v": 0,
+      "pos_migrated": true
+    },
+    "44": {
+      "_id": "68ee70795ffeacbd44ca1ca9",
+      "convid": "fGIWmV",
+      "varid": "Email",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "Please kindly provide me your :<br>Email Address :",
+              "delay": 1000
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": "off",
+          "placeholder": "Type here.."
+        },
+        "args": {
+          "rsp_gid": "32",
+          "input_type": "custom_text",
+          "pass": false,
+          "multiple": false
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 183,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "basic",
+        "properties": [
+          {
+            "id": "fDYYAPgiS2BaNE2nzej13",
+            "name": "Email",
+            "key": "Email",
+            "type": "string",
+            "required": true,
+            "description": "Collect email address of the person"
+          }
+        ],
+        "examples": [],
+        "user_query": {
+          "value": ""
+        },
+        "llm_model": "openai/gpt-4o-2024-08-06",
+        "vendor": "openrouter",
+        "data_collection": true,
+        "use_chat_history": true
+      },
+      "pos_migrated": true,
+      "updated_at": "2025-10-14T15:50:10.503Z",
+      "created_at": "2025-10-14T15:47:05.507Z",
+      "gid": "44",
+      "__v": 0
+    },
+    "45": {
+      "_id": "68ee716b7a321f71d7111b66",
+      "convid": "fGIWmV",
+      "varid": "Question",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "Please kindly provide me your :<br>Question :",
+              "delay": 1000
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "post": "validate_greater_input_length",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "text",
+        "attr": {
+          "type": "text",
+          "autocapitalize": "off",
+          "placeholder": "Type here.."
+        },
+        "args": {
+          "rsp_gid": "46",
+          "input_type": "custom_text",
+          "pass": false,
+          "multiple": false
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 517,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "basic",
+        "properties": [
+          {
+            "id": "fDYYAPgiS2BaNE2nzej13",
+            "name": "Question",
+            "key": "Question",
+            "type": "string",
+            "required": true,
+            "description": "Collect the question the person wants to ask "
+          }
+        ],
+        "examples": [],
+        "user_query": {
+          "value": ""
+        },
+        "llm_model": "openai/gpt-4o-2024-08-06",
+        "vendor": "openrouter",
+        "data_collection": true,
+        "use_chat_history": true
+      },
+      "pos_migrated": true,
+      "updated_at": "2025-10-14T15:53:21.289Z",
+      "created_at": "2025-10-14T15:51:07.588Z",
+      "gid": "45",
+      "__v": 0
+    },
+    "46": {
+      "_id": "68ee71b7f20bbaf9c2ec9de5",
+      "convid": "fGIWmV",
+      "varid": "Name_Email_Question_API",
+      "bubbles": {
+        "pre": {
+          "valid": []
+        },
+        "post": {
+          "err_invalid": []
+        }
+      },
+      "actions": {
+        "post": "",
+        "jump": "next_rsp",
+        "pre": "api_call",
+        "pre_args": {
+          "type": "POST",
+          "url": "https://hooks.zapier.com/hooks/catch/24957107/u5wip58/",
+          "includeUserResponse": "none",
+          "contentType": "application/x-www-form-urlencoded; charset=UTF-8",
+          "enable_encryption": false,
+          "data": {
+            "Name": "{{ursp.Name}}",
+            "Email": "{{ursp.Email}}",
+            "Question": "{{ursp.Question}}"
+          }
+        }
+      },
+      "input": {
+        "name": "no_input",
+        "attr": {
+          "type": "custom"
+        },
+        "args": {
+          "rsp_gid": "47",
+          "val": "--NO-INPUT--"
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 682,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "api_config"
+      },
+      "pos_migrated": true,
+      "updated_at": "2025-10-14T15:53:36.145Z",
+      "created_at": "2025-10-14T15:52:23.207Z",
+      "gid": "46",
+      "__v": 0
+    },
+    "47": {
+      "_id": "68ee71ff1cb214869372192a",
+      "gid": "47",
+      "convid": "fGIWmV",
+      "varid": "gid_47",
+      "bubbles": {
+        "pre": {
+          "valid": [
+            {
+              "string": "Thankyou for interacting with us🥰",
+              "delay": 1000
+            },
+            {
+              "string": "Kindly give us the ratings",
+              "delay": 1000
+            }
+          ]
+        },
+        "post": {
+          "err_invalid": [
+            {
+              "string": "Please give a valid input. Try again."
+            }
+          ]
+        }
+      },
+      "actions": {
+        "post": "validate_5_star_rating",
+        "jump": "next_rsp"
+      },
+      "input": {
+        "name": "star_rating",
+        "attr": {
+          "type": "custom"
+        },
+        "args": {
+          "stars": "5",
+          "step": "0.5",
+          "min": 1,
+          "max": "5",
+          "showCaption": false,
+          "showClear": false,
+          "rsp_gid": ""
+        }
+      },
+      "pos_left": 86,
+      "pos_top": 852,
+      "codeview": false,
+      "gambit_app": {
+        "gapp_id": "basic",
+        "properties": [
+          {
+            "id": "GZv2k8HuYYPITr99MeDsP",
+            "name": "Ratings",
+            "key": "Ratings",
+            "type": "rating",
+            "required": true,
+            "description": "Collect the user's rating on a scale from 1 to 5",
+            "args": {
+              "steps": "0.5",
+              "max": "5"
+            }
+          }
+        ],
+        "examples": [],
+        "user_query": {
+          "value": ""
+        },
+        "llm_model": "openai/gpt-4o-2024-08-06",
+        "vendor": "openrouter",
+        "data_collection": true,
+        "use_chat_history": true
+      },
+      "updated_at": "2025-10-14T15:54:25.930Z",
+      "created_at": "2025-10-14T15:53:35.369Z",
+      "__v": 0,
+      "pos_migrated": true
+    }
+  }
+}
